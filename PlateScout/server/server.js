@@ -130,6 +130,11 @@ app.post("/api/logout", (req, res) => {
   return res.status(200).json({ message: "Logged out." });
 });
 
+// ── Health check ─────────────────────────────────────────────────────────────
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
 // ── Yelp proxy ───────────────────────────────────────────────────────────────
 app.get("/api/yelp/businesses/search", async (req, res) => {
   const params = new URLSearchParams(req.query);
