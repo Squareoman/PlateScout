@@ -1,6 +1,7 @@
 // src/util/yelp.js
 
-const SEARCH_PATH = "/api/yelp/businesses/search";
+const BASE = import.meta.env.VITE_API_URL ?? "";
+const SEARCH_PATH = `${BASE}/api/yelp/businesses/search`;
 
 async function searchBusinesses(term, location, sortBy) {
   // Create URL search parameters using term, location, sort_by, and limit
