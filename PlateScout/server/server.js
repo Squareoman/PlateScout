@@ -130,6 +130,22 @@ app.post("/api/logout", (req, res) => {
   return res.status(200).json({ message: "Logged out." });
 });
 
+// ── Yelp proxy ───────────────────────────────────────────────────────────────
+app.get("/api/yelp/businesses/search", async (req, res) => {
+  const params = new URLSearchParams(req.query);
+  try {
+    const response = await fetch(
+      `https://api.yelp.com/v3/businesses/search?${params}`,
+      { headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}` } }
+    );
+    const data = await response.json();
+    return res.status(response.status).json(data);
+  } catch (err) {
+    console.error("Yelp proxy error:", err);
+    return res.status(500).json({ error: "Failed to reach Yelp API." });
+  }
+});
+
 // ── 7.6 404 fallback ────────────────────────────────────────────────────────
 app.use((req, res) => {
   return res.status(404).json({ error: "Route not found." });
