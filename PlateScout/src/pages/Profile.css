@@ -1,0 +1,35 @@
+.Profile {
+  max-width: 360px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.Profile h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.Profile p {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.Profile button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  background: #cca353;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.Profile button:hover {
+  background: #a7874b;
+}
